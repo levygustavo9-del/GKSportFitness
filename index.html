@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GK Sport Fitness — Academia para Todos</title>
-  <meta name="description" content="GK Sport Fitness - Treinos personalizados, acompanhamentos e um ambiente inspirador. Venha fazer parte do nosso time!">
+  <meta name="description"
+    content="GK Sport Fitness - Treinos personalizados, acompanhamentos e um ambiente inspirador. Venha fazer parte do nosso time!">
+  \
+  <meta name="theme-color" content="#1a1a2e">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
   <!-- HEADER -->
@@ -50,10 +56,11 @@
     <div class="hero-bg"></div>
     <div class="container">
       <div class="hero-badge">
-        <i class="fas fa-bolt"></i> Academia para Todos
+        <i class="fas fa-bolt"></i> Seu lugar de mudança!
       </div>
-      <h1>Onde você esculpe a sua <span class="highlight">melhor versão.</span></h1>
-      <p>Treinos personalizados, acompanhamentos profissionais e um ambiente inspirador para você superar seus limites.</p>
+      <h1>Sua melhor versão <span class="highlight">está sendo construída aqui.</span></h1>
+      <p>Treinos personalizados, acompanhamentos profissionais e um ambiente inspirador para você superar seus limites.
+      </p>
       <div class="hero-buttons">
         <a href="matricula.html" class="btn btn-primary">
           <i class="fas fa-clipboard-list"></i> Pré-Matrícula Online
@@ -83,15 +90,21 @@
   <section class="section about" id="sobre">
     <div class="container">
       <div class="about-grid">
-        <div class="about-image fade-in">
-          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=450&fit=crop" alt="Interior da GK Sport Fitness">
-          <div class="about-image-badge">+ de 5 anos</div>
+        <div class="about-video fade-in">
+          <video src="midia/videos/snapinsta.com.br-69dd19bdb44a9.mp4" loop></video>
+          <div class="play-button" id="playBtn">
+            ▶
+          </div>
+          <div class="about-video-badge">+ de 5 anos</div>
         </div>
         <div class="about-content fade-in">
           <div class="section-tag">Quem Somos</div>
           <h2>Mais que uma academia,<br>uma <span class="highlight">família.</span></h2>
-          <p>Na GK Sport Fitness acreditamos que cada pessoa merece um espaço onde possa evoluir com segurança, motivação e profissionalismo. Nossa missão é transformar vidas através do exercício físico e hábitos saudáveis.</p>
-          <p>Contamos com estrutura moderna, equipamentos de ponta e uma equipe altamente qualificada pronta para guiar você em cada etapa da sua jornada fitness.</p>
+          <p>Na GK Sport Fitness acreditamos que cada pessoa merece um espaço onde possa evoluir com segurança,
+            motivação e profissionalismo. Nossa missão é transformar vidas através do exercício físico e hábitos
+            saudáveis.</p>
+          <p>Contamos com estrutura moderna, equipamentos de ponta e uma equipe altamente qualificada pronta para guiar
+            você em cada etapa da sua jornada fitness.</p>
           <div class="about-features">
             <div class="about-feature">
               <i class="fas fa-check-circle"></i> Equipamentos modernos
@@ -100,7 +113,7 @@
               <i class="fas fa-check-circle"></i> Personal Trainers
             </div>
             <div class="about-feature">
-              <i class="fas fa-check-circle"></i> Ambiente climatizado
+              <i class="fas fa-check-circle"></i> Ambiente acolhedor
             </div>
             <div class="about-feature">
               <i class="fas fa-check-circle"></i> Aulas coletivas
@@ -127,25 +140,27 @@
 
         <div class="modality-card fade-in">
           <div class="modality-img">
-            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=400&h=250&fit=crop" alt="Musculação">
+            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=400&h=250&fit=crop"
+              alt="Musculação">
             <div class="overlay"></div>
           </div>
           <div class="modality-content">
             <h3>Musculação</h3>
             <p>Foco em força e hipertrofia. Ideal para modelar o corpo e acelerar o metabolismo basal.</p>
-            <span class="modality-link">Ver detalhes <i class="fas fa-arrow-right"></i></span>
+            <span class="modality-link" data-modal="musculacao">Ver detalhes <i class="fas fa-arrow-right"></i></span>
           </div>
         </div>
 
         <div class="modality-card fade-in">
           <div class="modality-img">
-            <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?w=400&h=250&fit=crop" alt="Funcional">
+            <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?w=400&h=250&fit=crop"
+              alt="Funcional">
             <div class="overlay"></div>
           </div>
           <div class="modality-content">
             <h3>Funcional</h3>
             <p>Movimentos naturais para força e agilidade. Treino dinâmico para o corpo todo.</p>
-            <span class="modality-link">Ver detalhes <i class="fas fa-arrow-right"></i></span>
+            <span class="modality-link" data-modal="funcional">Ver detalhes <i class="fas fa-arrow-right"></i></span>
           </div>
         </div>
 
@@ -157,19 +172,20 @@
           <div class="modality-content">
             <h3>Step</h3>
             <p>Exercícios rítmicos de subir e descer a plataforma. Melhora o fôlego e a coordenação motora.</p>
-            <span class="modality-link">Ver detalhes <i class="fas fa-arrow-right"></i></span>
+            <span class="modality-link" data-modal="step">Ver detalhes <i class="fas fa-arrow-right"></i></span>
           </div>
         </div>
 
         <div class="modality-card fade-in">
           <div class="modality-img">
-            <img src="https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?w=400&h=250&fit=crop" alt="Power Jump">
+            <img src="https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?w=400&h=250&fit=crop"
+              alt="Power Jump">
             <div class="overlay"></div>
           </div>
           <div class="modality-content">
             <h3>Power Jump</h3>
             <p>Treino dinâmico sobre o mini trampolim. Melhora a circulação e fortalece pernas e glúteos.</p>
-            <span class="modality-link">Ver detalhes <i class="fas fa-arrow-right"></i></span>
+            <span class="modality-link" data-modal="powerjump">Ver detalhes <i class="fas fa-arrow-right"></i></span>
           </div>
         </div>
 
@@ -181,25 +197,50 @@
           <div class="modality-content">
             <h3>FitDance</h3>
             <p>Dança coreografada com os sucessos do momento. Queima calorias de forma divertida e rítmica.</p>
-            <span class="modality-link">Ver detalhes <i class="fas fa-arrow-right"></i></span>
+            <span class="modality-link" data-modal="fitdance">Ver detalhes <i class="fas fa-arrow-right"></i></span>
           </div>
         </div>
 
         <div class="modality-card fade-in">
           <div class="modality-img">
-            <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=400&h=250&fit=crop" alt="Body Pump">
+            <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=400&h=250&fit=crop"
+              alt="Body Pump">
             <div class="overlay"></div>
           </div>
           <div class="modality-content">
             <h3>Body Pump</h3>
             <p>Musculação em ritmo de aula. Define os músculos com repetições intensas e barras.</p>
-            <span class="modality-link">Ver detalhes <i class="fas fa-arrow-right"></i></span>
+            <span class="modality-link" data-modal="bodypump">Ver detalhes <i class="fas fa-arrow-right"></i></span>
           </div>
         </div>
 
       </div>
     </div>
   </section>
+
+  <!-- MODAL MODALIDADES -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+
+      <!-- Carrossel de imagens -->
+      <div class="modal-carousel">
+        <div class="carousel-track" id="carouselTrack"></div>
+        <button class="carousel-btn carousel-prev" id="carouselPrev"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-btn carousel-next" id="carouselNext"><i class="fas fa-chevron-right"></i></button>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+
+      <!-- Info da modalidade -->
+      <div class="modal-info">
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+        <a href="matricula.html" class="btn btn-primary modal-cta">
+          <i class="fas fa-clipboard-list"></i> Fazer Pré-Matrícula
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- NUTRITION -->
   <section class="section nutrition" id="nutricao">
@@ -208,19 +249,21 @@
         <div class="nutrition-content fade-in">
           <div class="section-tag" style="color: var(--yellow);">Nutrição</div>
           <h2>Treino sem nutrição é <span class="highlight">esforço incompleto!</span></h2>
-          <p>Na GK Sport Fitness, você conta com acompanhamento nutricional para potencializar seus resultados de forma saudável e segura.</p>
+          <p>Na GK Sport Fitness, você conta com acompanhamento nutricional para potencializar seus resultados de forma
+            saudável e segura.</p>
           <ul class="nutrition-list">
             <li><i class="fas fa-check-circle"></i> Planos alimentares personalizados</li>
             <li><i class="fas fa-check-circle"></i> Emagrecimento e ganho de massa</li>
             <li><i class="fas fa-check-circle"></i> Performance e saúde a longo prazo</li>
             <li><i class="fas fa-check-circle"></i> Acompanhamento contínuo</li>
           </ul>
-          <a href="#" class="btn btn-primary">
-            <i class="fab fa-whatsapp"></i> Conheça a Nutricionista
+          <a href="https://giselekarine.netlify.app/" target="_blank" class="btn btn-primary">
+            <i class="fas fa-seedling"></i> Conheça a Nutricionista
           </a>
         </div>
         <div class="nutrition-image fade-in">
-          <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=500&h=450&fit=crop" alt="Nutrição e alimentação saudável">
+          <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=500&h=450&fit=crop"
+            alt="Nutrição e alimentação saudável">
         </div>
       </div>
     </div>
@@ -232,7 +275,8 @@
       <div class="section-header fade-in">
         <div class="section-tag" style="color: var(--yellow);">Planos</div>
         <h2 class="section-title" style="color: white;">Seu objetivo começa com <br>uma decisão!</h2>
-        <p class="section-subtitle">Estrutura completa, profissionais qualificados e um plano acessível para você evoluir de verdade.</p>
+        <p class="section-subtitle">Estrutura completa, profissionais qualificados e um plano acessível para você
+          evoluir de verdade.</p>
       </div>
       <div class="plans-cta fade-in">
         <div class="plans-price">
@@ -281,7 +325,9 @@
         </div>
         <div class="location-map fade-in">
           <!-- Substitua pelo embed do Google Maps da sua localização -->
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3932.0!2d-35.85!3d-9.66!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z!5e0!3m2!1spt-BR!2sbr!4v1" allowfullscreen loading="lazy"></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3932.0!2d-35.85!3d-9.66!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z!5e0!3m2!1spt-BR!2sbr!4v1"
+            allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
     </div>
@@ -293,7 +339,8 @@
       <div class="footer-grid">
         <div class="footer-about">
           <div class="logo">GK<span>Sport</span>Fitness</div>
-          <p>Sua jornada fitness começa aqui. Estrutura completa, profissionais qualificados e um ambiente que inspira você a ser melhor todos os dias.</p>
+          <p>Sua jornada fitness começa aqui. Estrutura completa, profissionais qualificados e um ambiente que inspira
+            você a ser melhor todos os dias.</p>
           <div class="footer-social">
             <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -347,4 +394,5 @@
 
   <script src="js/main.js"></script>
 </body>
+
 </html>
