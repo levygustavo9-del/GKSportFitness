@@ -18,6 +18,10 @@
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.2);
   --radius: 12px;
+
+  --fonte1: "Outfit", sans-serif;
+  --fonte2: "Inter", sans-serif;
+
 }
 
 html {
@@ -26,7 +30,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-family: var(--fonte2);
   color: var(--black);
   background: var(--white);
   line-height: 1.6;
@@ -124,23 +128,42 @@ header {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
   z-index: 1000;
   background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(12px);
-  transition: all var(--transition);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0;
+  transform: translateX(0);
 }
 
 header.scrolled {
-  background: rgba(0, 0, 0, 0.97);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  top: 12px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  width: 85%;
+  max-width: 1100px;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 50px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 10px;
 }
 
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 15px 0;
+  justify-content: space-evenly;
+  padding: 15px 0 2px;
+  transition: padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+header.scrolled .navbar {
+  padding: 6px 10px;
 }
 
 /* Scrollbar para Chrome/Edge/Safari */
@@ -166,18 +189,67 @@ header.scrolled {
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 1.5rem;
+  gap: 6px;
+  font-family: var(--fonte1);
   font-weight: 800;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   color: var(--white);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.logo span {
+/* Logo imagem — visível no topo */
+.logo-img {
+  width: 130px;
+  height: 130px;
+  margin-bottom: -2px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Logo texto — oculto no topo */
+.logo-gk,
+.logo-text {
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.logo-gk {
   color: var(--yellow);
+  font-size: 1.8rem;
+  font-weight: 900;
 }
 
-.logo img {
-  height: 45px;
+.logo-text {
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+
+/* Scrolled: esconde imagem, mostra texto */
+header.scrolled .logo-img {
+  opacity: 0;
+  max-width: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+header.scrolled .logo-gk {
+  opacity: 1;
+  max-width: 100px;
+  font-size: 1.4rem;
+}
+
+header.scrolled .logo-text {
+  opacity: 1;
+  max-width: 200px;
+  font-size: 1rem;
 }
 
 .nav-links {
@@ -240,16 +312,31 @@ header.scrolled {
   transform: scale(1.1);
 }
 
+/* Header scrolled — ocultar social e reduzir links */
+header.scrolled .nav-social {
+  display: none;
+}
+
+header.scrolled .nav-links a {
+  font-size: 0.8rem;
+}
+
+header.scrolled .nav-links {
+  gap: 18px;
+}
+
 /* Mobile Menu */
 .menu-toggle {
   display: none;
   flex-direction: column;
   gap: 5px;
+  justify-content: end;
   cursor: pointer;
-  z-index: 1001;
+  z-index: 1002;
   background: none;
   border: none;
   padding: 5px;
+  position: relative;
 }
 
 .menu-toggle span {
@@ -1513,23 +1600,75 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+
+  .logo-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  header.scrolled {
+    width: 100%;
+    left: 0;
+    right: 0;
+    transform: none;
+    border-radius: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  header.scrolled .logo-img {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
   .nav-links {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 80%;
-    max-width: 350px;
+    width: 75%;
+    max-width: 320px;
     height: 100vh;
+    height: 100dvh;
     background: rgba(0, 0, 0, 0.98);
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 25px;
-    transition: right var(--transition);
     padding: 20px;
+    transition: right var(--transition);
+    z-index: 1001;
   }
 
   .nav-links.active {
     right: 0;
+  }
+
+  /* Overlay escuro cobrindo o fundo */
+  .nav-links::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    width: 200vw;
+    height: 100vh;
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.85);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition), visibility var(--transition);
+    z-index: -1;
+  }
+
+  .nav-links.active::before {
+    opacity: 1;
+    visibility: visible;
   }
 
   .nav-links a {
