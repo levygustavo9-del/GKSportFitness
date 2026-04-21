@@ -28,6 +28,33 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// ===== COMMENTS SWIPER =====
+if (typeof Swiper !== 'undefined' && document.querySelector('.comments-swiper')) {
+  new Swiper('.comments-swiper', {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 30,
+    grabCursor: true,
+    pagination: {
+      el: '.comments-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.comments-next',
+      prevEl: '.comments-prev',
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+    },
+  });
+}
+
 // ===== SCROLL TOP BUTTON =====
 const scrollTopBtn = document.getElementById('scrollTop');
 
@@ -70,7 +97,7 @@ const counters = document.querySelectorAll('[data-count]');
 const counterObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      const target = parseInt(entry.target.getAttribute('data-count'));
+      const target = entry.target.getAttribute('data-count');
       animateCounter(entry.target, target);
       counterObserver.unobserve(entry.target);
     }
@@ -79,7 +106,10 @@ const counterObserver = new IntersectionObserver((entries) => {
 
 counters.forEach(counter => counterObserver.observe(counter));
 
-function animateCounter(element, target) {
+function animateCounter(element, targetValue) {
+  const isPercent = targetValue.includes('%');
+  const target = parseInt(targetValue);
+
   let current = 0;
   const increment = target / 60;
   const duration = 2000;
@@ -87,11 +117,18 @@ function animateCounter(element, target) {
 
   const timer = setInterval(() => {
     current += increment;
+
     if (current >= target) {
       current = target;
       clearInterval(timer);
     }
-    element.textContent = Math.floor(current) + '+';
+
+    if (isPercent) {
+      element.textContent = Math.floor(current) + '%';
+    } else {
+      element.textContent = Math.floor(current) + '+';
+    }
+
   }, stepTime);
 }
 
@@ -234,7 +271,7 @@ let totalSlides = 0;
 const content = {
   musculacao: {
     title: "Musculação",
-    description: "Treino focado em hipertrofia e ganho de força. Ideal para quem quer construir massa muscular, melhorar o metabolismo e definir o corpo com acompanhamento profissional.",
+    description: "Treino de força e hipertrofia com prescrição individual. Indicado para ganho de massa muscular, definição e evolução segura da performance.",
     images: [
       "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&h=400&fit=crop",
       "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop",
@@ -243,7 +280,7 @@ const content = {
   },
   funcional: {
     title: "Funcional",
-    description: "Treinos dinâmicos com movimentos naturais que trabalham o corpo inteiro, melhoram a mobilidade, a coordenação e a resistência. Ideal para todas as idades.",
+    description: "Aulas dinâmicas com movimentos integrados para desenvolver força, agilidade, mobilidade e condicionamento no corpo inteiro.",
     images: [
       "https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?w=600&h=400&fit=crop",
       "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop",
@@ -252,16 +289,16 @@ const content = {
   },
   step: {
     title: "Step",
-    description: "Atividade aeróbica com plataforma que melhora a resistência cardiovascular, coordenação motora e fortalece os membros inferiores de forma ritmada e divertida.",
+    description: "Aula aeróbica com plataforma que melhora o condicionamento cardiorrespiratório, a coordenação motora e o fortalecimento de pernas e glúteos.",
     images: [
       "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&h=400&fit=crop",
       "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
       "https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=600&h=400&fit=crop"
     ]
   },
-  powerjump: {
-    title: "Power Jump",
-    description: "Aula intensa no mini trampolim que fortalece pernas, glúteos e melhora a circulação. Alto gasto calórico com baixo impacto nas articulações.",
+  jump: {
+    title: "Jump",
+    description: "Treino no mini trampolim com alta queima calórica, foco cardiovascular e baixo impacto, ideal para aumentar disposição e resistência.",
     images: [
       "https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?w=600&h=400&fit=crop",
       "https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=600&h=400&fit=crop",
@@ -270,20 +307,29 @@ const content = {
   },
   fitdance: {
     title: "FitDance",
-    description: "Treino divertido com dança e coreografias dos maiores hits. Queima calorias, melhora a coordenação e é perfeito para quem quer se exercitar se divertindo.",
+    description: "Aulas coreografadas e animadas para queima calórica, coordenação e expressão corporal, com música e energia do início ao fim.",
     images: [
       "https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?w=600&h=400&fit=crop",
       "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=600&h=400&fit=crop",
       "https://images.unsplash.com/photo-1535525153412-5a42439a210d?w=600&h=400&fit=crop"
     ]
   },
-  bodypump: {
-    title: "Body Pump",
-    description: "Treino com barras e pesos em ritmo de aula coletiva, focado em definição muscular e resistência. Combina força e energia em grupo.",
+  pump: {
+    title: "Pump",
+    description: "Treino coletivo com barras e anilhas para resistência muscular, definição e fortalecimento global em aulas ritmadas e motivadoras.",
     images: [
       "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=600&h=400&fit=crop",
       "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop",
       "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&h=400&fit=crop"
+    ]
+  },
+  gap: {
+    title: "GAP",
+    description: "Aula localizada com foco em Glúteos, Abdômen e Pernas, ideal para tonificação, postura e fortalecimento de regiões estratégicas.",
+    images: [
+      "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1594737625785-c74f2d9f6f6f?w=600&h=400&fit=crop"
     ]
   }
 };
