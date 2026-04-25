@@ -28,7 +28,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// ===== COMMENTS SWIPER =====
+// ===== COMMENTS SWIPER =====  f
 if (typeof Swiper !== 'undefined' && document.querySelector('.comments-swiper')) {
   new Swiper('.comments-swiper', {
     loop: true,
@@ -188,8 +188,8 @@ forms.forEach(form => {
     message += `Objetivo: ${objetivo}%0A`;
     message += `Horário: ${horario}`;
 
-    // Substitua pelo número da academia
-    const whatsappNumber = '5500000000000';
+    // Número oficial para envio das mensagens do site
+    const whatsappNumber = '558293966592';
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
 
     form.reset();
