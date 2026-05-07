@@ -365,6 +365,32 @@ const carouselNext = document.getElementById("carouselNext");
 let currentSlide = 0;
 let totalSlides = 0;
 
+function getGithubProjectBasePath() {
+  const pathParts = window.location.pathname.split('/').filter(Boolean);
+  const firstSegment = pathParts[0] || '';
+  const isGithubPagesHost = window.location.hostname.endsWith('github.io');
+  const looksLikeFile = firstSegment.includes('.');
+
+  if (isGithubPagesHost && firstSegment && !looksLikeFile) {
+    return `/${firstSegment}`;
+  }
+
+  return '';
+}
+
+function normalizeModalImagePath(src) {
+  if (!src || /^(https?:|data:|blob:)/i.test(src)) {
+    return src;
+  }
+
+  const cleaned = src
+    .replace(/^\/?gksportfitness\//i, '')
+    .replace(/^\/+/, '');
+
+  const basePath = getGithubProjectBasePath();
+  return `${basePath}/${cleaned}`.replace(/\/\/{2,}/g, '/');
+}
+
 // Conteúdo dinâmico com imagens
 const content = {
   musculacao: {
@@ -447,7 +473,7 @@ function buildCarousel(images) {
 
   images.forEach((src, i) => {
     const img = document.createElement("img");
-    img.src = src;
+    img.src = normalizeModalImagePath(src);
     img.alt = "Imagem da modalidade";
     img.draggable = false;
     carouselTrack.appendChild(img);
