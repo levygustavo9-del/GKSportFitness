@@ -371,63 +371,63 @@ const content = {
     title: "Musculação",
     description: "Treino de força e hipertrofia com prescrição individual. Indicado para ganho de massa muscular, definição e evolução segura da performance.",
     images: [
-      "../midia/img/musculacao1.png",
-      "../midia/img/musculacao2.png",
-      "../midia/img/musculacao3.png"
+      "midia/img/musculacao1.png",
+      "midia/img/musculacao2.png",
+      "midia/img/musculacao3.png"
     ]
   },
   funcional: {
     title: "Funcional",
     description: "Aulas dinâmicas com movimentos integrados para desenvolver força, agilidade, mobilidade e condicionamento no corpo inteiro.",
     images: [
-      "../midia/img/funcional1.png",
-      "../midia/img/funcional2.png",
-      "../midia/img/funcional3.png"
+      "midia/img/funcional1.png",
+      "midia/img/funcional2.png",
+      "midia/img/funcional3.png"
     ]
   },
   step: {
     title: "Step",
     description: "Aula aeróbica com plataforma que melhora o condicionamento cardiorrespiratório, a coordenação motora e o fortalecimento de pernas e glúteos.",
     images: [
-      "../midia/img/step1.png",
-      "../midia/img/step2.png",
-      "../midia/img/step3.png"
+      "midia/img/step1.png",
+      "midia/img/step2.png",
+      "midia/img/step3.png"
     ]
   },
   jump: {
     title: "Jump",
     description: "Treino no mini trampolim com alta queima calórica, foco cardiovascular e baixo impacto, ideal para aumentar disposição e resistência.",
     images: [
-      "../midia/img/jump1.png",
-      "../midia/img/jump2.png",
-      "../midia/img/jump3.png"
+      "midia/img/jump1.png",
+      "midia/img/jump2.png",
+      "midia/img/jump3.png"
     ]
   },
   fitdance: {
     title: "FitDance",
     description: "Aulas coreografadas e animadas para queima calórica, coordenação e expressão corporal, com música e energia do início ao fim.",
     images: [
-      "../midia/img/fitdance1.png",
-      "../midia/img/fitdance2.png",
-      "../midia/img/fitdance3.png"
+      "midia/img/fitdance1.png",
+      "midia/img/fitdance2.png",
+      "midia/img/fitdance3.png"
     ]
   },
   pump: {
     title: "Pump",
     description: "Treino coletivo com barras e anilhas para resistência muscular, definição e fortalecimento global em aulas ritmadas e motivadoras.",
     images: [
-      "../midia/img/pump1.png",
-      "../midia/img/pump2.png",
-      "../midia/img/pump3.png"
+      "midia/img/pump1.png",
+      "midia/img/pump2.png",
+      "midia/img/pump3.png"
     ]
   },
   gap: {
     title: "GAP",
     description: "Aula localizada com foco em Glúteos, Abdômen e Pernas, ideal para tonificação, postura e fortalecimento de regiões estratégicas.",
     images: [
-      "../midia/img/gap1.png",
-      "../midia/img/gap2.png",
-      "../midia/img/gap3.png"
+      "midia/img/gap1.png",
+      "midia/img/gap2.png",
+      "midia/img/gap3.png"
     ]
   }
 };
