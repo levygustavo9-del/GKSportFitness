@@ -55,9 +55,9 @@ if (typeof Swiper !== 'undefined' && document.querySelector('.comments-swiper'))
   });
 }
 
-// ===== MODALITIES SWIPER (MOBILE) =====
+// ===== MODALITIES SWIPER (TABLET + MOBILE) =====
 let modalitiesSwiper;
-const modalitiesBreakpoint = window.matchMedia('(max-width: 768px)');
+const modalitiesBreakpoint = window.matchMedia('(max-width: 1024px)');
 
 function toggleModalitiesSwiper() {
   if (typeof Swiper === 'undefined') {
@@ -72,27 +72,22 @@ function toggleModalitiesSwiper() {
   if (modalitiesBreakpoint.matches) {
     if (!modalitiesSwiper) {
       modalitiesSwiper = new Swiper('.modalities-swiper', {
-        slidesPerView: 1,
+        slidesPerView: 1.08,
         spaceBetween: 16,
         grabCursor: true,
-        centeredSlides: true,
+        watchOverflow: true,
         pagination: {
           el: '.modalities-pagination',
           clickable: true,
         },
-        navigation: {
-          nextEl: '.modalities-next',
-          prevEl: '.modalities-prev',
-        },
         breakpoints: {
-          375: {
-            slidesPerView: 1,
-          },
           480: {
-            slidesPerView: 1,
+            slidesPerView: 1.12,
+            spaceBetween: 18,
           },
-          640: {
-            slidesPerView: 1,
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 24,
           },
         },
       });
@@ -110,9 +105,9 @@ function toggleModalitiesSwiper() {
 toggleModalitiesSwiper();
 modalitiesBreakpoint.addEventListener('change', toggleModalitiesSwiper);
 
-// ===== TEAM SWIPER (MOBILE) =====
+// ===== TEAM SWIPER (TABLET + MOBILE) =====
 let teamSwiper;
-const teamBreakpoint = window.matchMedia('(max-width: 768px)');
+const teamBreakpoint = window.matchMedia('(max-width: 1024px)');
 
 function toggleTeamSwiper() {
   if (typeof Swiper === 'undefined') {
@@ -127,13 +122,23 @@ function toggleTeamSwiper() {
   if (teamBreakpoint.matches) {
     if (!teamSwiper) {
       teamSwiper = new Swiper('.team-swiper', {
-        slidesPerView: 1,
+        slidesPerView: 1.05,
         spaceBetween: 16,
         grabCursor: true,
-        centeredSlides: true,
+        watchOverflow: true,
         pagination: {
           el: '.team-pagination',
           clickable: true,
+        },
+        breakpoints: {
+          480: {
+            slidesPerView: 1.08,
+            spaceBetween: 18,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 24,
+          },
         },
       });
     }
