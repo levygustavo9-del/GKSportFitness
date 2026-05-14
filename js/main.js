@@ -28,7 +28,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// ===== COMMENTS SWIPER =====  f
+// ===== COMMENTS SWIPER =====
 if (typeof Swiper !== 'undefined' && document.querySelector('.comments-swiper')) {
   new Swiper('.comments-swiper', {
     loop: true,
