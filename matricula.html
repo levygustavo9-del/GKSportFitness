@@ -35,7 +35,8 @@
             style="padding: 10px 22px; font-size: 0.8rem;">Contato</a>
         </div>
         <div class="nav-social">
-          <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.instagram.com/gksportfitness/" target="_blank" rel="noopener noreferrer"
+            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
           <a href="mailto:contato@gksportfitness.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
         <button class="menu-toggle" id="menuToggle" aria-label="Menu">
@@ -100,15 +101,15 @@
             <label for="horario">Horário desejado para avaliação:</label>
             <select id="horario" name="horario" required>
               <option value="" disabled selected>Selecione o horário</option>
-              <option value="manha">Manhã (06h - 11h)</option>
-              <option value="tarde">Tarde (14h - 17h)</option>
-              <option value="noite">Noite (18h - 21h)</option>
+              <option value="Manhã">Manhã (05h - 11h30)</option>
+              <option value="Tarde">Tarde (13h30 - 17h)</option>
+              <option value="Noite">Noite (18h - 21h)</option>
             </select>
           </div>
 
           <div class="form-check">
             <input type="checkbox" id="termos" name="termos" required>
-            <label for="termos">Aceito os <a href="#">Termos e Condições</a></label>
+            <label for="termos">Aceito os <a href="#" id="abrir-termos">Termos e Condições</a></label>
           </div>
 
           <button type="submit" class="btn btn-primary form-submit">
@@ -127,8 +128,9 @@
           <div class="logo">GK<span>Sport</span>Fitness</div>
           <p>Sua jornada fitness começa aqui.</p>
           <div class="footer-social">
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/gksportfitness/" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:contato@gksportfitness.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
             <a href="https://wa.me/558293966592" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i
                 class="fab fa-whatsapp"></i></a>
           </div>
@@ -166,6 +168,23 @@
   <button class="scroll-top" id="scrollTop" aria-label="Voltar ao topo">
     <i class="fas fa-chevron-up"></i>
   </button>
+
+  <div class="terms-modal" id="modal-termos">
+    <div class="modal-content">
+      <button class="close-btn" id="fechar-termos" aria-label="Fechar Termos">&times;</button>
+      <div class="terms-info">
+        <h2>Termos e Condições</h2>
+        <p>Ao enviar este formulário, você concorda em:
+        <ol>
+          <li>Autorizo o uso dos meus dados somente para comunicação referente à matrícula.</li>
+          <li>Estou apto(a) a realizar atividades físicas.</li>
+          <li>A pré-matrícula não garante vaga até confirmação e pagamento presencial.</li>
+          <li>Verifique seu WhatsApp, pois nossa equipe pode confirmar horário e matrícula por mensagem.</li>
+        </ol>
+        </p>
+      </div>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

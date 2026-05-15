@@ -642,7 +642,28 @@ header.scrolled .nav-links {
   z-index: 999;
 }
 
-.modal.active {
+.terms-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 999;
+}
+
+.modal.active,
+.terms-modal.active {
   opacity: 1;
   visibility: visible;
 }
@@ -659,7 +680,8 @@ header.scrolled .nav-links {
   transition: 0.3s;
 }
 
-.modal.active .modal-content {
+.modal.active .modal-content,
+.terms-modal.active .modal-content {
   transform: translateY(0);
 }
 
@@ -746,23 +768,68 @@ header.scrolled .nav-links {
   transform: scale(1.25);
 }
 
-/* Info do modal */
-.modal-info {
+/* Info do modal modalidades */
+.modal .modal-info {
   padding: 24px 10%;
 }
 
-.modal-info h2 {
-  font-size: 1.5rem;
+.modal .modal-info h2 {
+  font-size: 1.8rem;
   font-weight: 800;
   margin-bottom: 8px;
-  color: var(--dark);
+  text-align: left;
+  color: var(--blue);
 }
 
-.modal-info p {
-  color: #555;
+.modal .modal-info p {
+  color: #000000;
+  font-family: var(--fonte1);
+  text-transform: none;
+  text-align: left;
+  font-weight: 400;
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 20px;
+}
+
+.modal .modal-info ol {
+  margin-bottom: 16px;
+  color: #000000;
+  font-size: 1rem;
+}
+
+/* Info do modal termos */
+.terms-modal .terms-info {
+  padding: 24px 10%;
+}
+
+.terms-modal .terms-info h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  text-align: center;
+  color: var(--blue);
+}
+
+.terms-modal .terms-info p {
+  color: #000000;
+  font-family: var(--fonte1);
+  text-transform: uppercase;
+  text-align: left;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.terms-modal .terms-info ol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: decimal;
+  margin-bottom: 16px;
+  color: #000000;
+  font-size: 1rem;
 }
 
 .modal-cta {
@@ -777,16 +844,115 @@ header.scrolled .nav-links {
   position: absolute;
   top: 10px;
   right: 14px;
-  font-size: 28px;
+  font-size: 30px;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.8);
+  color: black;
   transition: color 0.2s;
   line-height: 1;
   z-index: 3;
+  border: none;
+  background-color: white;
 }
 
 .close-btn:hover {
-  color: #fff;
+  color: var(--blue);
+}
+
+/* ===== LIGHTBOX PARA FOTOS DOS COMENTÁRIOS ===== */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  animation: fadeInLightbox 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.lightbox.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fadeInLightbox {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomInImage {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  animation: zoomInImage 0.3s ease;
+  box-shadow: 0 10px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: var(--white);
+  font-size: 28px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  z-index: 10000;
+  backdrop-filter: blur(8px);
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .lightbox-close {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    top: 15px;
+    right: 15px;
+  }
 }
 
 .about-content h2 {
@@ -853,7 +1019,7 @@ header.scrolled .nav-links {
   display: none;
 }
 
-.modalities-grid > .swiper-slide:last-child:nth-child(3n + 1) {
+.modalities-grid>.swiper-slide:last-child:nth-child(3n + 1) {
   grid-column: 2 / 3;
 }
 
@@ -1869,6 +2035,7 @@ footer {
 }
 
 @media (max-width: 1024px) {
+
   .form-hero,
   .team-hero {
     min-height: auto;
@@ -2088,6 +2255,7 @@ footer {
 }
 
 @media (max-width: 768px) {
+
   .form-hero,
   .team-hero {
     padding-top: 130px;
@@ -2311,6 +2479,7 @@ footer {
 }
 
 @media (max-width: 480px) {
+
   .form-hero,
   .team-hero {
     padding-top: 115px;
@@ -2492,7 +2661,7 @@ footer {
     width: 96%;
   }
 
-  .modal-info {
+  .modal .modal-info {
     padding: 18px 20px 22px;
   }
 }

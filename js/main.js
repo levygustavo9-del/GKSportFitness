@@ -275,15 +275,21 @@ forms.forEach(form => {
 
     // Montar mensagem para WhatsApp
     const nome = data.nome || '';
+    const email = data.email || '';
+    const cpf = data.cpf || '';
+    const nascimento = data.nascimento || '';
     const telefone = data.telefone || '';
     const objetivo = data.objetivo || '';
     const horario = data.horario || '';
 
-    let tipo = form.id === 'formMatricula' ? 'Pré-Matrícula' : 'Aula Experimental';
+    const tipo = form.id === 'formMatricula' ? 'Pré-Matrícula' : 'Aula Experimental';
 
     let message = `Olá! Vim pelo site da academia.%0A`;
     message += `*${tipo}*%0A`;
     message += `Nome: ${nome}%0A`;
+    if (email) message += `E-mail: ${email}%0A`;
+    if (cpf) message += `CPF: ${cpf}%0A`;
+    if (nascimento) message += `Nascimento: ${nascimento}%0A`;
     message += `Telefone: ${telefone}%0A`;
     message += `Objetivo: ${objetivo}%0A`;
     message += `Horário: ${horario}`;
@@ -295,6 +301,38 @@ forms.forEach(form => {
     form.reset();
   });
 });
+
+// ===== MODAL TERMOS =====
+const abrirTermos = document.getElementById('abrir-termos');
+const modalTermos = document.getElementById('modal-termos');
+const fecharTermos = document.getElementById('fechar-termos');
+
+if (abrirTermos && modalTermos && fecharTermos) {
+  abrirTermos.addEventListener('click', (e) => {
+    e.preventDefault();
+    modalTermos.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+
+  fecharTermos.addEventListener('click', () => {
+    modalTermos.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  });
+
+  modalTermos.addEventListener('click', (e) => {
+    if (e.target === modalTermos) {
+      modalTermos.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalTermos.classList.contains('active')) {
+      modalTermos.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  });
+}
 
 // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -532,5 +570,52 @@ if (modal && closeBtn) {
     if (e.key === "Escape" && modal.classList.contains("active")) {
       modal.classList.remove("active");
     }
+  });
+}
+
+// ===== LIGHTBOX PARA FOTOS DOS COMENTÁRIOS =====
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+const lightboxClose = document.getElementById('lightboxClose');
+
+// Coletar todas as imagens dos comentários
+const commentImages = document.querySelectorAll('.card-comments-header img');
+
+if (lightbox && lightboxImage && lightboxClose && commentImages.length > 0) {
+  function openLightbox(imageElement) {
+    const selectedSrc = imageElement.src;
+    lightboxImage.src = selectedSrc;
+    lightboxImage.alt = imageElement.alt;
+
+    // Mostrar o lightbox
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  // Event listeners do lightbox
+  lightboxClose.addEventListener('click', closeLightbox);
+
+  // Fechar ao clicar fora da imagem
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Fechar com Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
+
+  // Adicionar click listeners em todas as imagens de comentários
+  commentImages.forEach(img => {
+    img.addEventListener('click', () => openLightbox(img));
   });
 }
