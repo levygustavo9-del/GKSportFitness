@@ -326,46 +326,59 @@ header.scrolled .nav-social {
 }
 
 header.scrolled .nav-links a {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
+  padding: 16px 24px;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 header.scrolled .nav-links {
-  gap: 18px;
+  gap: 0;
 }
 
 /* Mobile Menu */
 .menu-toggle {
   display: none;
   flex-direction: column;
-  gap: 5px;
-  justify-content: end;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   z-index: 1002;
-  background: none;
-  border: none;
-  padding: 5px;
+  background: rgba(255, 204, 3, 0.1);
+  border: 1px solid rgba(255, 204, 3, 0.3);
+  border-radius: 8px;
+  padding: 8px 10px;
   position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-toggle:hover {
+  background: rgba(255, 204, 3, 0.15);
+  border-color: rgba(255, 204, 3, 0.5);
+  transform: scale(1.05);
 }
 
 .menu-toggle span {
   display: block;
-  width: 28px;
-  height: 3px;
-  background: var(--white);
-  border-radius: 3px;
-  transition: all var(--transition);
+  width: 24px;
+  height: 2.5px;
+  background: var(--yellow);
+  border-radius: 2px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(255, 204, 3, 0.2);
 }
 
 .menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 6px);
+  transform: rotate(45deg) translate(8px, 8px);
 }
 
 .menu-toggle.active span:nth-child(2) {
   opacity: 0;
+  transform: scaleX(0);
 }
 
 .menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -6px);
+  transform: rotate(-45deg) translate(7px, -7px);
 }
 
 /* ===== HERO ===== */
@@ -2094,17 +2107,21 @@ footer {
     position: fixed;
     top: 0;
     right: -100%;
-    width: min(78vw, 320px);
+    width: min(85vw, 340px);
     height: 100vh;
     height: 100dvh;
-    background: rgba(0, 0, 0, 0.98);
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.98) 0%, rgba(2, 88, 211, 0.05) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    padding: 24px 20px;
-    transition: right var(--transition);
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0;
+    padding: 100px 0 40px 0;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1001;
+    border-left: 1px solid rgba(255, 204, 3, 0.1);
+    box-shadow: -20px 0 40px rgba(0, 0, 0, 0.3);
   }
 
   .nav-links.active {
@@ -2119,10 +2136,11 @@ footer {
     width: 200vw;
     height: 100vh;
     height: 100dvh;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
     opacity: 0;
     visibility: hidden;
-    transition: opacity var(--transition), visibility var(--transition);
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: -1;
   }
 
@@ -2132,8 +2150,48 @@ footer {
   }
 
   .nav-links a {
-    font-size: 1.05rem;
-    padding: 12px 0;
+    font-size: 1rem;
+    padding: 18px 28px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    position: relative;
+    color: rgba(255, 255, 255, 0.85);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-left: 3px solid transparent;
+    margin: 8px 0;
+  }
+
+  .nav-links a::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--yellow);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-links a:hover {
+    color: var(--yellow);
+    padding-left: 36px;
+    background: rgba(255, 204, 3, 0.08);
+    border-left-color: var(--yellow);
+  }
+
+  .nav-links a:hover::before {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  .nav-links .btn {
+    margin: 24px 28px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    box-shadow: 0 8px 24px rgba(255, 204, 3, 0.3);
   }
 
   .menu-toggle {
@@ -2313,9 +2371,16 @@ footer {
   }
 
   .nav-links {
-    width: min(82vw, 320px);
-    gap: 22px;
-    padding: 20px;
+    width: min(85vw, 340px);
+  }
+
+  .nav-links a {
+    font-size: 0.95rem;
+    padding: 16px 24px;
+  }
+
+  .menu-toggle {
+    display: flex;
   }
 
   .hero-bg {
